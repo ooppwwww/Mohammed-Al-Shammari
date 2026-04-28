@@ -4,127 +4,223 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ديوان محمد السليطي الشمري</title>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Almarai:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Almarai:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        :root {
+            --bg-color: #f4f1ea;
+            --card-bg: #ffffff;
+            --primary-color: #5d4037;
+            --accent-color: #8d6e63;
+            --text-color: #3e2723;
+        }
+
         body {
             font-family: 'Almarai', sans-serif;
-            background-color: #f4f1ea;
-            color: #3e2723;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             margin: 0; padding: 0;
-            line-height: 1.8;
-            text-align: center;
-        }
-        .container { max-width: 800px; margin: auto; padding: 20px; }
-        
-        h1 { font-family: 'Amiri', serif; font-size: 45px; color: #5d4037; margin-top: 40px; }
-        
-        .section {
-            background: white;
-            margin-top: 30px;
-            padding: 30px;
-            border-radius: 8px;
-            border: 1px solid #e0dcd0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            text-align: right;
+            line-height: 1.6;
         }
 
-        .title-box {
+        .container { max-width: 850px; margin: 20px auto; padding: 15px; }
+
+        .header { text-align: center; margin-bottom: 30px; }
+        .header h1 { font-family: 'Amiri', serif; font-size: clamp(35px, 8vw, 50px); color: var(--primary-color); margin: 0; }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #e0dcd0;
+            padding-bottom: 5px;
+            flex-wrap: wrap;
+        }
+
+        .nav-tabs button {
+            background: none;
+            border: none;
+            padding: 10px 20px;
+            font-size: 17px;
+            font-family: 'Almarai', sans-serif;
+            cursor: pointer;
+            color: #9e9185;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .nav-tabs button.active {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .tab-content { 
+            display: none; 
+            animation: fadeIn 0.4s ease-in;
+        }
+        
+        #bio { display: block; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .card {
+            background: var(--card-bg);
+            padding: clamp(20px, 5vw, 45px);
+            border-radius: 4px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            border: 1px solid #e0dcd0;
+        }
+
+        .bio-title {
             font-family: 'Amiri', serif;
             font-size: 30px;
-            color: #5d4037;
-            border-bottom: 2px solid #8d6e63;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            display: inline-block;
+            color: var(--primary-color);
+            margin-top: 0;
+            border-right: 5px solid var(--accent-color);
+            padding-right: 15px;
         }
-
-        .bio-text { font-size: 20px; text-align: justify; }
+        .bio-text { font-size: 20px; text-align: justify; color: #4a3728; }
+        
         .quote {
             font-style: italic;
             background: #fdfaf5;
             padding: 15px;
-            border-right: 4px solid #8d6e63;
+            border-left: 4px solid var(--accent-color);
             margin: 20px 0;
+            color: var(--primary-color);
             font-family: 'Amiri', serif;
-            font-size: 24px;
-            color: #5d4037;
+            font-size: 22px;
         }
 
-        /* القصائد */
-        .poem-title { font-family: 'Amiri', serif; font-size: 32px; text-align: center; color: #5d4037; margin-top: 30px; }
-        .verse { display: flex; justify-content: space-between; margin-bottom: 15px; font-family: 'Amiri', serif; font-size: 26px; }
-        .sadr { width: 48%; text-align: right; }
-        .ajuz { width: 48%; text-align: left; color: #666; }
+        .poem-section { margin-bottom: 50px; border-bottom: 1px dashed #e0dcd0; padding-bottom: 30px; }
+        .poem-section:last-child { border-bottom: none; }
 
-        /* التواصل */
+        .poem-title { font-family: 'Amiri', serif; font-size: 32px; text-align: center; color: var(--primary-color); margin-top: 10px; }
+        .verse { display: flex; justify-content: space-between; margin-bottom: 12px; font-family: 'Amiri', serif; font-size: clamp(20px, 4vw, 26px); }
+        .sadr { width: 48%; text-align: right; }
+        .ajuz { width: 48%; text-align: left; color: #5d5d5d; }
+
+        .social-container { text-align: center; }
         .social-btn {
-            display: block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             text-decoration: none;
-            color: white;
+            color: white !important;
             padding: 15px;
             border-radius: 5px;
-            margin: 10px auto;
-            max-width: 300px;
-            font-weight: bold;
+            margin: 8px;
             font-size: 18px;
+            transition: 0.3s;
+            width: 100%;
+            max-width: 280px;
         }
-        .btn-x { background: #000; }
-        .btn-insta { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); }
+        .btn-x { background-color: #000000; }
+        .btn-insta { background: linear-gradient(45deg, #405de6, #c13584, #fd1d1d); }
+        .social-btn i { margin-left: 10px; font-size: 22px; }
 
         @media (max-width: 600px) {
-            .verse { flex-direction: column; text-align: center; margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 10px;}
-            .sadr, .ajuz { width: 100%; }
+            .verse { flex-direction: column; text-align: center; margin-bottom: 20px; border-bottom: 1px solid #f0f0f0; padding-bottom: 10px; }
+            .sadr, .ajuz { width: 100%; text-align: center; }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>ديوان العرب</h1>
+    <div class="header">
+        <h1>ديوان العرب</h1>
+    </div>
 
-    <div class="section">
-        <div class="title-box">السيرة والمنهج</div>
-        <p class="bio-text">
-            <strong>محمد بن ابراهيم السليطي الشمري</strong><br><br>
-            شاعرٌ يستقي من عمق الباديةِ ملامح حرفه، يطوع المعاني بلهجةٍ بدويةٍ أصيلة تفيضُ بالفخر والشهامة. عُرف بمنهجٍ يجمع بين "الذرابة" في القول وجزالة الموروث الشعبي الأصيل.
-        </p>
-        <div class="quote">
-            "الشعر عندي هو صدى العزيمة، ولحن الأرضِ، وميدانٌ للفخرِ الذي لا يلين."
+    <div class="nav-tabs">
+        <button class="tablinks active" onclick="openTab(event, 'bio')">السيرة والمنهج</button>
+        <button class="tablinks" onclick="openTab(event, 'poems')">القصائد المختارة</button>
+        <button class="tablinks" onclick="openTab(event, 'social')">تواصل معي</button>
+    </div>
+
+    <div id="bio" class="tab-content" style="display: block;">
+        <div class="card">
+            <h2 class="bio-title">محمد بن ابراهيم السليطي الشمري</h2>
+            <div class="bio-text">
+                <p>شاعرٌ يستقي من عمق الباديةِ ملامح حرفه، يطوع المعاني بلهجةٍ بدويةٍ أصيلة تفيضُ بالفخر والشهامة. عُرف بمنهجٍ يجمع بين "الذرابة" في القول وجزالة الموروث الشعبي.</p>
+                <div class="quote">
+                    "الشعر عندي هو صدى العزيمة، ولحن الأرضِ، وميدانٌ للفخرِ الذي لا يلين."
+                </div>
+                <p>تتجلى في أبياته قيمُ الأنفة، وعزة النفس، والارتباط الوثيق بجماليات الطبيعة الصحراوية، مستلهماً من "الوادي" ثباته وصموده، ومن "الخضيرا" رفعتها وسموّها.</p>
+            </div>
         </div>
-        <p class="bio-text">
-            تتجلى في أبياته قيمُ الأنفة، وعزة النفس، والارتباط الوثيق بجماليات الطبيعة الصحراوية، مستلهماً من "الوادي" ثباته وصموده، ومن "الخضيرا" رفعتها وسموّها.
-        </p>
     </div>
 
-    <div class="section">
-        <div class="title-box">القصائد المختارة</div>
-        
-        <div class="poem-title">سيفه طموحه</div>
-        <div class="verse"><div class="sadr">صـبيٍ لـيا شـانت ظـروفه.. تـسنّد</div><div class="ajuz">عـلى يـمينه.. مـا ارتـجـى مـدّة الـغير</div></div>
-        <div class="verse"><div class="sadr">يـرقـى طـويلات الـرجـوم ويـعـنّد</div><div class="ajuz">لـو كـان جـوّه عـجّ.. مـا هـاب طـيـر</div></div>
-        <div class="verse"><div class="sadr">يـرفـع مـقـامه بـالـنـقـا.. مـا تـفـنّد</div><div class="ajuz">سـيـفه طـموحه.. والـكـرامـة مـذادير</div></div>
+    <div id="poems" class="tab-content">
+        <div class="card">
+            
+            <div class="poem-section">
+                <div class="poem-title">سيفه طموحه</div>
+                <div style="text-align: center; color: var(--accent-color); margin-bottom: 20px;">❈ ❈ ❈</div>
+                <div class="verse"><div class="sadr">صـبيٍ لـيا شـانت ظـروفه.. تـسنّد</div><div class="ajuz">عـلى يـمينه.. مـا ارتـجـى مـدّة الـغير</div></div>
+                <div class="verse"><div class="sadr">يـرقـى طـويلات الـرجـوم ويـعـنّد</div><div class="ajuz">لـو كـان جـوّه عـجّ.. مـا هـاب طـيـر</div></div>
+                <div class="verse"><div class="sadr">يـرفـع مـقـامه بـالـنـقـا.. مـا تـفـنّد</div><div class="ajuz">سـيـفه طـموحه.. والـكـرامـة مـذادير</div></div>
+                <div class="verse"><div class="sadr">مـا يـنـتظـر فـزعة رفـيـقٍ يـقـنّد</div><div class="ajuz">راسـه بـطـيـبـه يـطـرد الـشـرّ بـالـخـير</div></div>
+                <div class="verse"><div class="sadr">بـدوّيٍ لـيا مـنّ الـزمن فـيه شـنّد</div><div class="ajuz">وقـف جـبل.. والـعـزّ قـلـب وتـدابـير</div></div>
+            </div>
 
-        <div class="poem-title" style="margin-top:50px;">لهيب الضماير</div>
-        <div class="verse"><div class="sadr">الحرّ يجزع لو تلمّس قضبانه</div><div class="ajuz">وهو الـذي بالجوّ ماله منافيس</div></div>
-        <div class="verse"><div class="sadr">يا غاليٍ ما هان عندي مكانه</div><div class="ajuz">صدري لغيـرك صايرٍ كنه حـبيس</div></div>
-        <div class="verse"><div class="sadr">أغار.. مير الذرب يمسك لسانه</div><div class="ajuz">ويكتم لهيبٍ بالضماير كـوابيس</div></div>
+            <div class="poem-section">
+                <div class="poem-title">لهيب الضماير</div>
+                <div style="text-align: center; color: var(--accent-color); margin-bottom: 20px;">❈ ❈ ❈</div>
+                <div class="verse"><div class="sadr">الحرّ يجزع لو تلمّس قضبانه</div><div class="ajuz">وهو الـذي بالجوّ ماله منافيس</div></div>
+                <div class="verse"><div class="sadr">واللي نزل روضٍ تزيّن جنانه</div><div class="ajuz">يضيق لو شاف الأثر بالمراويس</div></div>
+                <div class="verse"><div class="sadr">يا غاليٍ ما هان عندي مكانه</div><div class="ajوز">صدري لغيـرك صايرٍ كنه حـبيس</div></div>
+                <div class="verse"><div class="sadr">أغار.. مير الذرب يمسك لسانه</div><div class="ajuz">ويكتم لهيبٍ بالضماير كـوابيس</div></div>
+            </div>
 
-        <div class="poem-title" style="margin-top:50px;">ريوف</div>
-        <div class="verse"><div class="sadr">يا هيه ياللي خذيتي من الحلا ما كفاك</div><div class="ajuz">يا رزانةٍ ترجح بكل العقول وتجيرها</div></div>
-        <div class="verse"><div class="sadr">ما هو مدحٍ رخيصٍ ينقال في ذا وذاك</div><div class="ajuz">إلا فخرٍ بـ روحٍ ما لقيت مثيلها</div></div>
+            <div class="poem-section">
+                <div class="poem-title">ريوف</div>
+                <div style="text-align: center; color: var(--accent-color); margin-bottom: 20px;">❈ ❈ ❈</div>
+                <div class="verse"><div class="sadr">يا هيه ياللي خذيتي من الحلا ما كفاك</div><div class="ajuz">يا رزانةٍ ترجح بكل العقول وتجيرها</div></div>
+                <div class="verse"><div class="sadr">ما هو مدحٍ رخيصٍ ينقال في ذا وذاك</div><div class="ajuz">إلا فخرٍ بـ روحٍ ما لقيت مثيلها</div></div>
+                <div class="verse"><div class="sadr">أشوف فيك الصدود اللي يزوّد غلاك</div><div class="ajuz">ونفسٍ عن دروب الهزل ربي مجيرها</div></div>
+                <div class="verse"><div class="sadr">مرّت مواري "ريوف" بـ خيالٍ حواك</div><div class="ajuz">كنّ الورود الندية تنتظر تعبيرها</div></div>
+            </div>
+
+            <div class="poem-section">
+                <div class="poem-title">الوادي</div>
+                <div style="text-align: center; color: var(--accent-color); margin-bottom: 20px;">❈ ❈ ❈</div>
+                <div class="verse"><div class="sadr">سريت ليلي وثلاث(ن) ما يـردّوني</div><div class="ajuz">طيرٍ حرارٍ مساري.. وجّه مسراي</div></div>
+                <div class="verse"><div class="sadr">والسيل منحدرٍ من دوني وبـدوني</div><div class="ajuz">والجبال راسيـةٍ يـميني ويـساري</div></div>
+            </div>
+
+        </div>
     </div>
 
-    <div class="section" style="text-align: center;">
-        <div class="title-box">تواصل رسمي</div><br>
-        <a href="https://x.com/priv_555i" target="_blank" class="social-btn btn-x"><i class="fa-brands fa-x-twitter"></i> منصة X</a>
-        <a href="https://instagram.com/movri30" target="_blank" class="social-btn btn-insta"><i class="fa-brands fa-instagram"></i> إنستقرام</a>
+    <div id="social" class="tab-content">
+        <div class="card social-container">
+            <h2 class="bio-title" style="text-align: center; border: none; padding: 0;">تواصل رسمي</h2>
+            <p style="font-size: 18px; margin-bottom: 25px;">للمتابعة والتواصل عبر المنصات الرسمية:</p>
+            <a href="https://x.com/priv_555i" target="_blank" class="social-btn btn-x"><i class="fa-brands fa-x-twitter"></i> منصة X</a>
+            <a href="https://instagram.com/movri30" target="_blank" class="social-btn btn-insta"><i class="fa-brands fa-instagram"></i> إنستقرام</a>
+        </div>
     </div>
 
-    <footer style="margin: 40px 0; font-size: 14px; color: #8d6e63;">
-        &copy; 2026 جميع الحقوق محفوظة للشاعر محمد السليطي الشمري
+    <footer style="text-align: center; margin-top: 40px; font-size: 14px; color: #8d6e63; font-weight: bold; padding-bottom: 20px;">
+        &copy; 2026 جميع الحقوق محفوظة | محمد السليطي الشمري
     </footer>
 </div>
 
+<script>
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+</script>
 </body>
 </html>
