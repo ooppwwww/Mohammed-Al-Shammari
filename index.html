@@ -60,7 +60,6 @@
             animation: fadeIn 0.4s ease-in;
         }
         
-        /* لضمان ظهور التبويب الأول */
         #bio { display: block; }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -94,107 +93,5 @@
             font-size: 22px;
         }
 
-        .poem-title { font-family: 'Amiri', serif; font-size: 32px; text-align: center; color: var(--primary-color); margin-top: 20px; }
-        .verse { display: flex; justify-content: space-between; margin-bottom: 12px; font-family: 'Amiri', serif; font-size: clamp(20px, 4vw, 26px); }
-        .sadr { width: 48%; text-align: right; }
-        .ajuz { width: 48%; text-align: left; color: #5d5d5d; }
-
-        .social-container { text-align: center; }
-        .social-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: white !important;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 8px;
-            font-size: 18px;
-            transition: 0.3s;
-            width: 100%;
-            max-width: 280px;
-        }
-        .btn-x { background-color: #000000; }
-        .btn-insta { background: linear-gradient(45deg, #405de6, #c13584, #fd1d1d); }
-        .social-btn i { margin-left: 10px; font-size: 22px; }
-
-        @media (max-width: 600px) {
-            .verse { flex-direction: column; text-align: center; margin-bottom: 20px; border-bottom: 1px solid #f0f0f0; padding-bottom: 10px; }
-            .sadr, .ajuz { width: 100%; text-align: center; }
-            .nav-tabs button { padding: 8px 12px; font-size: 15px; }
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <div class="header">
-        <h1>ديوان العرب</h1>
-    </div>
-
-    <div class="nav-tabs">
-        <button id="defaultTab" class="tablinks active" onclick="openTab(event, 'bio')">السيرة والمنهج</button>
-        <button class="tablinks" onclick="openTab(event, 'poems')">القصائد</button>
-        <button class="tablinks" onclick="openTab(event, 'social')">تواصل معي</button>
-    </div>
-
-    <div id="bio" class="tab-content" style="display: block;">
-        <div class="card">
-            <h2 class="bio-title">محمد بن ابراهيم السليطي الشمري</h2>
-            <div class="bio-text">
-                <p>شاعرٌ ينسج من الحرفِ رزانةً، ومن المعنى وقاراً. عُرف بمنهجه الذي يجمع بين جزالة اللفظِ وعمق الموروث.</p>
-                <div class="quote">
-                    "أرى في الشعرِ رسالةً تسمو بالنفس، وترجحُ بها العقول، وميزاناً للصدقِ في زمنِ التكرار."
-                </div>
-                <p>تظهر في قصائده قيمُ الأنفة، والفخر، والارتباط الوثيق بجماليات الطبيعة وقوة العزيمة، مستلهماً من "الوادي" ثباته، ومن "الخضيرا" سموّها.</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="poems" class="tab-content">
-        <div class="card">
-            <div class="poem-title">ريوف</div>
-            <div style="text-align: center; color: var(--accent-color); margin-bottom: 20px;">❈ ❈ ❈</div>
-            <div class="verse"><div class="sadr">يا هيه ياللي خذيتي من الحلا ما كفاك</div><div class="ajuz">يا رزانةٍ ترجح بكل العقول وتجيرها</div></div>
-            <div class="verse"><div class="sadr">ما هو مدحٍ رخيصٍ ينقال في ذا وذاك</div><div class="ajuz">إلا فخرٍ بـ روحٍ ما لقيت مثيلها</div></div>
-            <div class="verse"><div class="sadr">أشوف فيك الصدود اللي يزوّد غلاك</div><div class="ajuz">ونفسٍ عن دروب الهزل ربي مجيرها</div></div>
-            <div class="verse"><div class="sadr">مرّت مواري "ريوف" بـ خيالٍ حواك</div><div class="ajuz">كنّ الورود الندية تنتظر تعبيرها</div></div>
-            
-            <div class="poem-title" style="margin-top: 40px;">الوادي</div>
-            <div style="text-align: center; color: var(--accent-color); margin-bottom: 20px;">❈ ❈ ❈</div>
-            <div class="verse"><div class="sadr">سريت ليلي وثلاث(ن) ما يـردّوني</div><div class="ajuz">طيرٍ حرارٍ مساري.. وجّه مسراي</div></div>
-            <div class="verse"><div class="sadr">والسيل منحدرٍ من دوني وبـدوني</div><div class="ajuz">والجبال راسيـةٍ يـميني ويـساري</div></div>
-        </div>
-    </div>
-
-    <div id="social" class="tab-content">
-        <div class="card social-container">
-            <h2 class="bio-title" style="text-align: center; border: none; padding: 0;">تواصل رسمي</h2>
-            <p style="font-size: 18px; margin-bottom: 25px;">للمتابعة والتواصل عبر المنصات الرسمية:</p>
-            <a href="https://x.com/priv_555i" target="_blank" class="social-btn btn-x"><i class="fa-brands fa-x-twitter"></i> منصة X</a>
-            <a href="https://instagram.com/movri30" target="_blank" class="social-btn btn-insta"><i class="fa-brands fa-instagram"></i> إنستقرام</a>
-        </div>
-    </div>
-
-    <footer style="text-align: center; margin-top: 40px; font-size: 14px; color: #8d6e63; font-weight: bold; padding-bottom: 20px;">
-        &copy; 2026 جميع الحقوق محفوظة | محمد السليطي الشمري
-    </footer>
-</div>
-
-<script>
-    function openTab(evt, tabName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tab-content");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(tabName).style.display = "block";
-        evt.currentTarget.className += " active";
-    }
-</script>
-</body>
-</html>
+        .poem-section { margin-bottom: 50px; border-bottom: 1px dashed #e0dcd0; padding-bottom: 30px; }
+        .poem-
