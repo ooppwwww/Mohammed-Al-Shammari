@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ديوان محمد السليطي الشمري</title>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Almarai:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Almarai:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --bg-color: #f4f1ea;    /* لون ورقي راكد */
-            --primary-color: #5d4037; /* بني غامق وقور */
-            --accent-color: #8d6e63;  /* بني فاتح */
+            --bg-color: #f4f1ea;
+            --card-bg: #ffffff;
+            --primary-color: #5d4037;
+            --accent-color: #8d6e63;
             --text-color: #3e2723;
         }
 
@@ -17,144 +19,105 @@
             font-family: 'Almarai', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
+            line-height: 1.6;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 50px auto;
-            padding: 20px;
+        .container { max-width: 850px; margin: 30px auto; padding: 20px; }
+
+        .header { text-align: center; margin-bottom: 40px; }
+        .header h1 { font-family: 'Amiri', serif; font-size: 50px; color: var(--primary-color); margin: 0; }
+
+        /* القائمة (الخيارات) */
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e0dcd0;
+            padding-bottom: 10px;
         }
 
-        /* تصميم رأس الصفحة */
-        .header {
-            text-align: center;
-            border-bottom: 2px solid var(--accent-color);
-            margin-bottom: 60px;
-            padding-bottom: 20px;
-        }
-
-        .header h1 {
-            font-family: 'Amiri', serif;
-            font-size: 45px;
-            margin: 0;
-            color: var(--primary-color);
-        }
-
-        /* صندوق القصيدة */
-        .poem-card {
-            background: #ffffff;
-            padding: 50px 40px;
-            margin-bottom: 50px;
-            border-radius: 2px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border: 1px solid #e0dcd0;
-        }
-
-        .poem-title {
-            font-family: 'Amiri', serif;
-            font-size: 32px;
-            color: var(--primary-color);
-            text-align: center;
-            margin-bottom: 10px;
+        .nav-tabs button {
+            background: none;
+            border: none;
+            padding: 10px 30px;
+            font-size: 19px;
+            font-family: 'Almarai', sans-serif;
+            cursor: pointer;
+            color: #9e9185;
+            transition: 0.3s;
             font-weight: bold;
         }
 
-        .poet-name {
-            text-align: center;
-            font-size: 18px;
-            color: var(--accent-color);
-            margin-bottom: 40px;
-            border-bottom: 1px dashed #ddd;
-            padding-bottom: 20px;
+        .nav-tabs button.active {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
         }
 
-        .poem-content {
+        /* المحتوى */
+        .tab-content { display: none; animation: fadeIn 0.6s; }
+        .tab-content.active { display: block; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .card {
+            background: var(--card-bg);
+            padding: 45px;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid #e0dcd0;
+        }
+
+        /* السيرة الذاتية */
+        .bio-title {
             font-family: 'Amiri', serif;
-            font-size: 26px;
-            line-height: 2.2;
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-top: 0;
+            border-right: 5px solid var(--accent-color);
+            padding-right: 15px;
+        }
+        .bio-text { font-size: 21px; text-align: justify; color: #4a3728; }
+        .quote {
+            font-style: italic;
+            background: #fdfaf5;
+            padding: 20px;
+            border-left: 4px solid var(--accent-color);
+            margin: 25px 0;
+            color: var(--primary-color);
+            font-family: 'Amiri', serif;
+            font-size: 24px;
         }
 
-        .verse {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-        }
+        /* القصائد */
+        .poem-title { font-family: 'Amiri', serif; font-size: 34px; text-align: center; color: var(--primary-color); margin-top: 20px; }
+        .verse { display: flex; justify-content: space-between; margin-bottom: 15px; font-family: 'Amiri', serif; font-size: 26px; }
+        .sadr { width: 46%; text-align: right; }
+        .ajuz { width: 46%; text-align: left; color: #5d5d5d; }
 
-        .sadr, .ajuz {
-            width: 46%;
-        }
-
-        .sadr { text-align: right; }
-        .ajuz { text-align: left; color: #555; }
-
-        .separator {
-            color: var(--accent-color);
-            font-size: 16px;
-            display: flex;
+        /* التواصل الاجتماعي */
+        .social-container { text-align: center; }
+        .social-btn {
+            display: inline-flex;
             align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            padding: 18px 45px;
+            border-radius: 5px;
+            margin: 10px;
+            font-size: 20px;
+            transition: 0.3s;
+            min-width: 280px;
         }
+        .btn-x { background-color: #000000; }
+        .btn-insta { background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d); }
+        .social-btn i { margin-left: 12px; font-size: 24px; }
+        .social-btn:hover { opacity: 0.85; transform: translateY(-3px); }
 
-        /* للجوال */
         @media (max-width: 600px) {
-            .verse {
-                flex-direction: column;
-                text-align: center;
-                margin-bottom: 30px;
-            }
-            .sadr, .ajuz { width: 100%; text-align: center; }
-            .ajuz { font-size: 24px; margin-top: 5px; }
-            .separator { display: none; }
-            .poem-card { padding: 30px 15px; }
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            font-size: 14px;
-            color: #999;
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <div class="header">
-        <h1>ديوان العرب</h1>
-        <p>مختارات من قصائد محمد السليطي الشمري</p>
-    </div>
-
-    <div class="poem-card">
-        <div class="poem-title">ريوف</div>
-        <div class="poet-name">محمد السليطي الشمري</div>
-        <div class="poem-content">
-            <div class="verse"><div class="sadr">يا هيه ياللي خذيتي من الحلا ما كفاك</div><div class="separator">✧</div><div class="ajuz">يا رزانةٍ ترجح بكل العقول وتجيرها</div></div>
-            <div class="verse"><div class="sadr">ما هو مدحٍ رخيصٍ ينقال في ذا وذاك</div><div class="separator">✧</div><div class="ajuz">إلا فخرٍ بـ روحٍ ما لقيت مثيلها</div></div>
-            <div class="verse"><div class="sadr">أشوف فيك الصدود اللي يزوّد غلاك</div><div class="separator">✧</div><div class="ajuz">ونفسٍ عن دروب الهزل ربي مجيرها</div></div>
-            <div class="verse"><div class="sadr">مرّت مواري "ريوف" بـ خيالٍ حواك</div><div class="separator">✧</div><div class="ajuz">كنّ الورود الندية تنتظر تعبيرها</div></div>
-            <div class="verse"><div class="sadr">لك في حنايا الضلوع منزلٍ ما نساك</div><div class="separator">✧</div><div class="ajuz">ولك هيبةٍ في خفوقي.. صعب تفسيرها</div></div>
-            <div class="verse"><div class="sadr">بنتٍ تسوق الوقار بـ خطوتك وعطاك</div><div class="separator">✧</div><div class="ajuz">ولا الوجيه الجميلة.. يا كثر تكريرها</div></div>
-            <div class="verse"><div class="sadr">أنتي كما النادر اللي بالخضيرا سماك</div><div class="separator">✧</div><div class="ajuz">والعين ما كلّ زولٍ يملي نواظيرها</div></div>
-        </div>
-    </div>
-
-    <div class="poem-card" style="border-top: 4px solid var(--primary-color);">
-        <div class="poem-title">الوادي</div>
-        <div class="poet-name">محمد السليطي الشمري</div>
-        <div class="poem-content">
-            <div class="verse"><div class="sadr">سريت ليلي وثلاث(ن) ما يـردّوني</div><div class="separator">✦</div><div class="ajuz">طيرٍ حرارٍ مساري.. وجّه مسراي</div></div>
-            <div class="verse"><div class="sadr">والسيل منحدرٍ من دوني وبـدوني</div><div class="separator">✦</div><div class="ajuz">والجبال راسيـةٍ يـميني ويـساري</div></div>
-            <div class="verse"><div class="sadr">والقـمرا تـنـوّر دربي بـكل كـوني</div><div class="separator">✦</div><div class="ajuz">والليل يـبدي ضحاه لو مـا بـدالي</div></div>
-            <div class="verse"><div class="sadr">سبحان من جـمّع الثلاث بـمتـوني</div><div class="separator">✦</div><div class="ajuz">والحمد لله يوم جـلّى خـفايا الوادي</div></div>
-            <div class="verse"><div class="sadr">وإن بـدا غـيمٍ وصكّ صكّ الجيوشي</div><div class="separator">✦</div><div class="ajuz">زبنت لـذرا جـبالٍ.. فـيها أمـاني</div></div>
-        </div>
-    </div>
-
-    <footer>
-        جميع الحقوق محفوظة للشاعر محمد السليطي الشمري &copy; 2026
-    </footer>
-</div>
-
-</body>
-</html>
+            .verse { flex-direction: column; text-align: center; margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 10px;}
+            .sadr, .ajuz { width: 100%; }
+            .nav-tabs button { padding: 10px 5px; font-size: 16px; flex: 1; }
+            .card { padding: 25
