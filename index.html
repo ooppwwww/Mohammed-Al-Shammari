@@ -2,153 +2,159 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ديوان محمد السليطي - ريوف</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
-
+    <title>ديوان محمد السليطي الشمري</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Almarai:wght@300;400&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-color: #f4f1ea;    /* لون ورقي راكد */
+            --primary-color: #5d4037; /* بني غامق وقور */
+            --accent-color: #8d6e63;  /* بني فاتح */
+            --text-color: #3e2723;
+        }
+
         body {
-            font-family: 'Amiri', serif;
-            background-color: #fcfbf7;
-            color: #333;
+            font-family: 'Almarai', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             margin: 0;
-            padding: 10px;
+            padding: 0;
         }
+
         .container {
-            max-width: 700px;
-            margin: 30px auto;
-            background: white;
-            padding: 40px 20px;
-            border: 1px solid #dcd7ca;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            text-align: center;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
         }
-        .header-line {
-            border-bottom: 2px solid #8b0000;
-            margin-bottom: 30px;
-            padding-bottom: 10px;
-            color: #8b0000;
-            font-size: 20px;
+
+        /* تصميم رأس الصفحة */
+        .header {
+            text-align: center;
+            border-bottom: 2px solid var(--accent-color);
+            margin-bottom: 60px;
+            padding-bottom: 20px;
+        }
+
+        .header h1 {
+            font-family: 'Amiri', serif;
+            font-size: 45px;
+            margin: 0;
+            color: var(--primary-color);
+        }
+
+        /* صندوق القصيدة */
+        .poem-card {
+            background: #ffffff;
+            padding: 50px 40px;
+            margin-bottom: 50px;
+            border-radius: 2px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e0dcd0;
+        }
+
+        .poem-title {
+            font-family: 'Amiri', serif;
+            font-size: 32px;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 10px;
             font-weight: bold;
         }
-        .poem-title {
-            color: #8b0000;
-            font-size: 35px;
-            margin: 10px 0;
-        }
+
         .poet-name {
+            text-align: center;
             font-size: 18px;
-            color: #666;
+            color: var(--accent-color);
             margin-bottom: 40px;
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 20px;
         }
-        .poem-body {
-            font-size: 24px;
-            line-height: 2.8;
-            color: #222;
+
+        .poem-content {
+            font-family: 'Amiri', serif;
+            font-size: 26px;
+            line-height: 2.2;
         }
+
         .verse {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 10px;
-            border-bottom: 1px dotted #eee;
+            margin-bottom: 15px;
         }
-        .sadr, .ajuz {
-            width: 48%;
-            display: inline-block;
-        }
-        .sadr { text-align: right; }
-        .ajuz { text-align: left; }
 
-        /* تنسيق الجوال */
+        .sadr, .ajuz {
+            width: 46%;
+        }
+
+        .sadr { text-align: right; }
+        .ajuz { text-align: left; color: #555; }
+
+        .separator {
+            color: var(--accent-color);
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* للجوال */
         @media (max-width: 600px) {
             .verse {
                 flex-direction: column;
-                margin-bottom: 25px;
-                border-bottom: 1px solid #f0f0f0;
-            }
-            .sadr, .ajuz {
-                width: 100%;
                 text-align: center;
+                margin-bottom: 30px;
             }
-            .ajuz { color: #555; font-size: 21px; }
+            .sadr, .ajuz { width: 100%; text-align: center; }
+            .ajuz { font-size: 24px; margin-top: 5px; }
+            .separator { display: none; }
+            .poem-card { padding: 30px 15px; }
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 14px;
+            color: #999;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="header-line">ديوان العرب</div>
-    
-    <div class="poem-title">ريوف</div>
-    <div class="poet-name">الشاعر: محمد السليطي الشمري</div>
+    <div class="header">
+        <h1>ديوان العرب</h1>
+        <p>مختارات من قصائد محمد السليطي الشمري</p>
+    </div>
 
-    <div class="poem-body">
-        <div class="verse">
-            <div class="sadr">يا هيه ياللي خذيتي من الحلا ما كفاك</div>
-            <div class="ajuz">يا رزانةٍ ترجح بكل العقول وتجيرها</div>
-        </div>
-        <div class="verse">
-            <div class="sadr">ما هو مدحٍ رخيصٍ ينقال في ذا وذاك</div>
-            <div class="ajuz">إلا فخرٍ بـ روحٍ ما لقيت مثيلها</div>
-        </div>
-        <div class="verse">
-            <div class="sadr">أشوف فيك الصدود اللي يزوّد غلاك</div>
-            <div class="ajuz">ونفسٍ عن دروب الهزل ربي مجيرها</div>
-        </div>
-        <div class="verse">
-            <div class="sadr">مرّت مواري "ريوف" بـ خيالٍ حواك</div>
-            <div class="ajuz">كنّ الورود الندية تنتظر تعبيرها</div>
-        </div>
-        <div class="verse">
-            <div class="sadr">لك في حنايا الضلوع منزلٍ ما نساك</div>
-            <div class="ajuz">ولك هيبةٍ في خفوقي.. صعب تفسيرها</div>
-        </div>
-        <div class="verse">
-            <div class="sadr">بنتٍ تسوق الوقار بـ خطوتك وعطاك</div>
-            <div class="ajuz">ولا الوجيه الجميلة.. يا كثر تكريرها</div>
-        </div>
-        <div class="verse">
-            <div class="sadr">أنتي كما النادر اللي بالخضيرا سماك</div>
-            <div class="ajuz">والعين ما كلّ زولٍ يملي نواظيرها</div>
+    <div class="poem-card">
+        <div class="poem-title">ريوف</div>
+        <div class="poet-name">محمد السليطي الشمري</div>
+        <div class="poem-content">
+            <div class="verse"><div class="sadr">يا هيه ياللي خذيتي من الحلا ما كفاك</div><div class="separator">✧</div><div class="ajuz">يا رزانةٍ ترجح بكل العقول وتجيرها</div></div>
+            <div class="verse"><div class="sadr">ما هو مدحٍ رخيصٍ ينقال في ذا وذاك</div><div class="separator">✧</div><div class="ajuz">إلا فخرٍ بـ روحٍ ما لقيت مثيلها</div></div>
+            <div class="verse"><div class="sadr">أشوف فيك الصدود اللي يزوّد غلاك</div><div class="separator">✧</div><div class="ajuz">ونفسٍ عن دروب الهزل ربي مجيرها</div></div>
+            <div class="verse"><div class="sadr">مرّت مواري "ريوف" بـ خيالٍ حواك</div><div class="separator">✧</div><div class="ajuz">كنّ الورود الندية تنتظر تعبيرها</div></div>
+            <div class="verse"><div class="sadr">لك في حنايا الضلوع منزلٍ ما نساك</div><div class="separator">✧</div><div class="ajuz">ولك هيبةٍ في خفوقي.. صعب تفسيرها</div></div>
+            <div class="verse"><div class="sadr">بنتٍ تسوق الوقار بـ خطوتك وعطاك</div><div class="separator">✧</div><div class="ajuz">ولا الوجيه الجميلة.. يا كثر تكريرها</div></div>
+            <div class="verse"><div class="sadr">أنتي كما النادر اللي بالخضيرا سماك</div><div class="separator">✧</div><div class="ajuz">والعين ما كلّ زولٍ يملي نواظيرها</div></div>
         </div>
     </div>
+
+    <div class="poem-card" style="border-top: 4px solid var(--primary-color);">
+        <div class="poem-title">الوادي</div>
+        <div class="poet-name">محمد السليطي الشمري</div>
+        <div class="poem-content">
+            <div class="verse"><div class="sadr">سريت ليلي وثلاث(ن) ما يـردّوني</div><div class="separator">✦</div><div class="ajuz">طيرٍ حرارٍ مساري.. وجّه مسراي</div></div>
+            <div class="verse"><div class="sadr">والسيل منحدرٍ من دوني وبـدوني</div><div class="separator">✦</div><div class="ajuz">والجبال راسيـةٍ يـميني ويـساري</div></div>
+            <div class="verse"><div class="sadr">والقـمرا تـنـوّر دربي بـكل كـوني</div><div class="separator">✦</div><div class="ajuz">والليل يـبدي ضحاه لو مـا بـدالي</div></div>
+            <div class="verse"><div class="sadr">سبحان من جـمّع الثلاث بـمتـوني</div><div class="separator">✦</div><div class="ajuz">والحمد لله يوم جـلّى خـفايا الوادي</div></div>
+            <div class="verse"><div class="sadr">وإن بـدا غـيمٍ وصكّ صكّ الجيوشي</div><div class="separator">✦</div><div class="ajuz">زبنت لـذرا جـبالٍ.. فـيها أمـاني</div></div>
+        </div>
+    </div>
+
+    <footer>
+        جميع الحقوق محفوظة للشاعر محمد السليطي الشمري &copy; 2026
+    </footer>
 </div>
 
 </body>
-</html>                flex-direction: column;
-                text-align: center;
-                margin-bottom: 25px;
-            }
-            .sadr, .ajuz {
-                width: 100%;
-                padding: 0;
-            }
-            .ajuz {
-                color: #666;
-                font-size: 22px;
-            }
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <div class="header-site">
-        <div style="font-size: 18px; letter-spacing: 2px; color: #8b0000; font-weight: bold;">ديوان العرب</div>
-    </div>
-
-    <div class="poem-title">ريوف</div>
-    <div class="poet-name">الشاعر: محمد السليطي الشمري</div>
-
-    <div class="poem-body">
-        <div class="verse">
-            <div class="sadr">يا هيه ياللي خذيتي من الحلا ما كفاك</div>
-            <div class="ajuz">يا رزانةٍ ترجح بكل العقول وتجيرها</div>
-        </div>
-
-        <div class="verse">
-            <div class="sadr">ما هو مدحٍ رخيصٍ ينقال في ذا وذاك</div>
-            <div class="ajuz">إلا فخرٍ بـ روحٍ ما لقيت مثيلها</div>
-        </div>
+</html>
